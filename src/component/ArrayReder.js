@@ -30,9 +30,11 @@ export const ArrayReder = () => {
 
     return(
         <div>
-            <User user={users[0]} />
-            <User user={users[1]} />
-            <User user={users[2]} />
+            {
+                users.map(userInfo => (
+                    <User user={userInfo} key={userInfo.id} />
+                ))
+            }
         </div>
     )
 }

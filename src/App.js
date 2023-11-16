@@ -1,9 +1,9 @@
-import { InputRefSample } from './component/InputRefSample';
+import { ArrayReder } from './component/ArrayReder';
 import './css/App.css';
 
 function App() {
   return (
-    <InputRefSample/>
+    <ArrayReder/>
   );
 }
 

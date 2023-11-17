@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { UserList } from "./UserList";
 import { CreateUser } from "./CreateUser";
 
 
 export const ArrayReder = () => {
-    const user = [
+    const [users, setUsers] = useState([
         {
           id: 1,
           username: 'velopert',
@@ -20,18 +20,48 @@ export const ArrayReder = () => {
           username: 'liz',
           email: 'liz@example.com'
         }
-      ];
-
+      ]);
     
+    const [inputs,setInputs] = useState({
+      username: '',
+      useremail: ''
+    })
+
+    const {username,useremail} = inputs;
+
+    const onChange = (e) =>{
+      const {name,value} = e.target; //value가 현재 input값이고 name 현재 input에 들어있는 name
+
+      setInputs({
+        ...inputs,
+        [name]: value
+      })
+    }
 
     const nextId = useRef(4);
     const onCreate = () => {
-        nextId.current += 1;
+      const addUserInfo = {
+        id: nextId.current,
+        username,
+        useremail
+      }
+      
+      setUsers([
+        ...users,
+        addUserInfo
+      ])
+      
+      setInputs({
+        username: '',
+        useremail: ''
+      })
+
+      nextId.current += 1;
     }
     return(
       <>
-        <CreateUser />
-        <UserList  users={user}/>
+        <CreateUser username={username} useremail={useremail} onChange={onChange} onCreate={onCreate}/>
+        <UserList  users={users}/>
       </>
     )
 }

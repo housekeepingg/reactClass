@@ -26,6 +26,7 @@ const Box = styled.div`
   text-align: center;
   line-height: 200px;
   font-size: 50px;
+  overflow: hidden;
   b {
     color: antiquewhite;
   }

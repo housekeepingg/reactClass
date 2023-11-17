@@ -1,9 +1,11 @@
-import { ArrayReder } from './component/ArrayReder';
-import './css/App.css';
+import { ArrayReder } from "./component/ArrayReder";
+import { PlusTwo } from "./component/PlusTwo";
+import "./css/App.css";
 
 function App() {
   return (
-    <ArrayReder/>
+    // <ArrayReder/>
+    <PlusTwo />
   );
 }
 

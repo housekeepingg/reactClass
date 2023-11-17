@@ -1,16 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import { UserList } from "./UserList";
+import { CreateUser } from "./CreateUser";
 
-const User = ({ user }) => {
-    return(
-        <div>
-            <b>{user.username}</b>
-            <span>{user.email}</span>
-        </div>
-    )
-}
 
 export const ArrayReder = () => {
-    const users = [
+    const user = [
         {
           id: 1,
           username: 'velopert',
@@ -28,13 +22,16 @@ export const ArrayReder = () => {
         }
       ];
 
+    
+
+    const nextId = useRef(4);
+    const onCreate = () => {
+        nextId.current += 1;
+    }
     return(
-        <div>
-            {
-                users.map(userInfo => (
-                    <User user={userInfo} key={userInfo.id} />
-                ))
-            }
-        </div>
+      <>
+        <CreateUser />
+        <UserList  users={user}/>
+      </>
     )
 }

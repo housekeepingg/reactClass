@@ -1,4 +1,4 @@
-import { ArrayReder } from './component/ArrayReder';
+import { ArrayReder } from './component/Array/ArrayReder';
 import './css/App.css';
 
 function App() {

@@ -7,10 +7,10 @@ import { useState } from "react";
 
 export const Test = () => {
   const [names, setNames] = useState([
-    { id: "신형만", email: "신형만@naver.com" },
-    { id: "봉미선", email: "봉미선@naver.com" },
-    { id: "신짱구", email: "신짱구@naver.com" },
-    { id: "신짱아", email: "신짱아@naver.com" },
+    { id: 1, name: "신형만", email: "신형만@naver.com" },
+    { id: 2, name: "봉미선", email: "봉미선@naver.com" },
+    { id: 3, name: "신짱구", email: "신짱구@naver.com" },
+    { id: 4, name: "신짱아", email: "신짱아@naver.com" },
   ]);
 
   const [inputs, setInputs] = useState("");
@@ -23,6 +23,7 @@ export const Test = () => {
   const onClick = () => {
     const nextNames = names.concat({
       id: nextId,
+      name: inputs,
       email: inputs,
     });
     setNextId(nextId + 1);
@@ -30,7 +31,11 @@ export const Test = () => {
     setInputs("");
   };
 
-  const namesList = names.map((name) => <li key={name.id}>{name.email}</li>);
+  const namesList = names.map((name) => (
+    <li key={name.id}>
+      {name.name} : {name.email}
+    </li>
+  ));
 
   return (
     <wrap>
